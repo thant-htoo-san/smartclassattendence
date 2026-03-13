@@ -1,0 +1,5 @@
+.expo/
+smart-class-app/.expo/
+node_modules/
+smart-class-app/node_modules/
+*.log

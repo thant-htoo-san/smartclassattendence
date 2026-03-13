@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "Smart Class Check-in",
+    "slug": "smart-class-checkin",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Camera is required to scan class QR codes.",
+        "NSLocationWhenInUseUsageDescription": "Location is required to verify class attendance."
+      }
+    },
+    "android": {
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "web": {
+      "name": "Smart Class Check-in - Web",
+      "url": "https://your-app.com"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Smart Class to access your camera"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Smart Class to use your location"
+        }
+      ]
+    ]
+  }
+}

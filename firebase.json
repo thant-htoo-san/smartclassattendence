@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "providers": {
+      "emailPassword": true,
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "smartclass",
+        "supportEmail": "support@undefined.firebaseapp.com"
+      }
+    }
+  }
+}
