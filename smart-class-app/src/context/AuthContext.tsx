@@ -6,7 +6,10 @@ import {
   createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
 } from 'firebase/auth';
-import { auth } from '../config/firebase';
+import { auth, isFirebaseConfigured } from '../config/firebase';
+
+const FIREBASE_SETUP_ERROR =
+  'Firebase is not configured. Copy .env.example to .env.local, fill EXPO_PUBLIC_FIREBASE_* values, and restart Expo with cache clear (npm run web -- --clear).';
 
 interface AuthContextType {
   user: User | null;
@@ -36,9 +39,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       user,
       loading,
       signIn: async (email: string, password: string) => {
+        if (!isFirebaseConfigured) {
+          throw new Error(FIREBASE_SETUP_ERROR);
+        }
+
         await signInWithEmailAndPassword(auth, email.trim(), password);
       },
       signUp: async (email: string, password: string) => {
+        if (!isFirebaseConfigured) {
+          throw new Error(FIREBASE_SETUP_ERROR);
+        }
+
         await createUserWithEmailAndPassword(auth, email.trim(), password);
       },
       signOut: async () => {
